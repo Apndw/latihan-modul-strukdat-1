@@ -1,3 +1,4 @@
+#include <cstring>
 #include <iostream>
 
 using namespace std;
@@ -9,17 +10,17 @@ using namespace std;
  */
 class Car {
   // Inisiasi variable topspeed dengan default value 0
-  double topspeed = 0;
+  double topspeed_081 = 0;
 
   public:
     // Inisiasi variable untuk menyimpan nama dan tipe mesin kendaraan
-    char name[100], engine[100];
+    char name_081[100], engine_081[100];
 
     // Inisiasi variable untuk menyimpan data kecepatan kendaraan
-    double speed = 0;
+    double speed_081 = 0;
 
     // Inisiasi variable untuk menyimpan data total gigi kendaraan
-    int gear = 3;
+    int gear_081 = 3;
     
     /**
      * Prosedural untuk mencetak tiap nilai dari public maupun private variable
@@ -27,14 +28,14 @@ class Car {
      * @return void
      */
     void print() {
-      topspeed = speed * gear;
+      topspeed_081 = speed_081 * gear_081;
       
       cout << "=================" << endl;
-      cout << "Nama kendaraan " << name << endl;
-      cout << "Jenis mesin " << engine << endl;
-      cout << "Kecepatan kendaraan " << speed << endl;
-      cout << "Total roda gigi " << gear << endl;
-      cout << "Kecepatan maksimal " << topspeed << endl;
+      cout << "Nama kendaraan " << name_081 << endl;
+      cout << "Jenis mesin " << engine_081 << endl;
+      cout << "Kecepatan kendaraan " << speed_081 << endl;
+      cout << "Total roda gigi " << gear_081 << endl;
+      cout << "Kecepatan maksimal " << topspeed_081 << endl;
       cout << "=================" << endl;
     }
 };
@@ -45,36 +46,39 @@ class Car {
  * @struct Driver
  */
 struct Driver {
-  string nama, team;
-  int number;
+  string nama_081, team_081;
+  int number_081;
 };
 
 int main() {
   // Inisiasi variable car dengan tipe data class Car
-  Car car;
+  Car car_081;
 
   // Isi data nama dan mesin dengan fungsi strcpy
   // Digunakan untuk mengubah string ke tipe data char
-  strcpy(car.name, "RB20");
-  strcpy(car.engine, "V6");
+  strcpy(car_081.name_081, "RB20");
+  strcpy(car_081.engine_081, "V6");
 
   // Isi nilai dengan integer
-  car.gear = 8;
-  car.speed = 45;
+  car_081.gear_081 = 8;
+  car_081.speed_081 = 45;
 
   // Cetak data kendaraan
-  car.print();
+  car_081.print();
 
   //Inisiasi variable driver dengan tipe data struct Driver
-  Driver driver;
+  Driver driver_081[2];
 
   // Isi nilai struct
-  driver = { "Max Verstappen", "Red Bull Power Train Honda", 1 };
+  driver_081[0] = { "Max Verstappen", "Red Bull Power Train Honda", 1 };
+  driver_081[1] = { "Apri Pandu Wicaksono", "Red Bull Power Train Honda", 81 };
 
   // Cetak nilai dari struct pada variable driver
-  cout << "Nama pembalap " << driver.nama << endl;
-  cout << "Team pembalap " << driver.team << endl;
-  cout << "Nomor pembalap " << driver.number << endl;
+  for (int i = 0; i < sizeof(driver_081) / sizeof(*driver_081); i++) {
+    cout << "Nama pembalap " << driver_081[i].nama_081 << endl;
+    cout << "Team pembalap " << driver_081[i].team_081 << endl;
+    cout << "Nomor pembalap " << driver_081[i].number_081 << endl;
+  }
 
   return 0;
 }
